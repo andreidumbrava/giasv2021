@@ -33,6 +33,9 @@ MANIFEST
 *.manifest
 *.spec
 
+#ignore env_vars
+src/env_vars.*
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
