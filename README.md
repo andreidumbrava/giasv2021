@@ -1,2 +1,6 @@
-# giasv2021
-UnitBV GIASV 2021 
+# GIASV 2021's repository
+
+
+Transylvania University
+IESC
+GIASV, 2021
