@@ -1,0 +1,30 @@
+@startuml "SAML Flow overview"
+participant idp as "Identity\nProvider"
+participant user as "Personna"
+participant ua as "User\nAgent"
+participant sp as "Service\nProvider\n(ACS)"
+
+
+autonumber
+idp<->sp: Establish Trust. Configure Claims. Specify Mappings
+user->ua: HMI Access
+ua->sp: Service Request
+sp->sp: SP initiated flows begins here. 
+sp->sp: IdP Discovery
+sp->ua: Redirect with SAML Request (Claim)
+ua->idp: Relays SAML Request (Claim)
+idp->idp: IDP initiated flows begins here
+idp->idp: ACS Discovery
+idp->ua: User Authentication Workflow
+ua<->user: Credentials
+ua->idp: Authentication workflow data
+idp->idp: Process Identity Data
+idp->idp: if Authenticated, build SAML Assertion
+idp->ua: SAML Response (Assertion)
+ua->sp: SAML Response (Assertion)
+sp->ua: if Assertion=ok, deliver Security Context
+ua->sp: Request Resource
+sp->ua: Resource Response
+ua->user: HMI
+
+@enduml
